@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import { CardList } from './components/card-list/Card-list.component'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      monsters: [
+        {
+          name: 'Frankenstein',
+          id: 'a'
+        },
+        {
+          name: 'Dracula',
+          id: 'b'
+        },
+        {
+          name: 'Zombie',
+          id: 'c'
+        },
+      ]
+    }
+  }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(users => this.setState({ monsters: users }))
+
+  }
+
+
+
+  render() {
+    let { monsters } = this.state
+    return (
+      <div className="App">
+        <CardList>
+          {monsters.map((monster, idx) => <h1 key={idx}>{monster.name}</h1>)}
+        </CardList>
+      </div>
+    )
+  }
 }
-
-export default App;
