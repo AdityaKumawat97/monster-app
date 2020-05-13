@@ -1,4 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Simple React based application
+* Features
+  * Uses API to fetch name, email-id data (https://jsonplaceholder.typicode.com/users) 
+  * Uses Robohash's API to fetch the images data (https://robohash.org)
+  * Uses Promises to perform API activities
+  * Uses a grid structure
+  * Has transition effects
+  * Names can be filtered dynamically using the search box
+
 ### ScreenShot
 ![](images/ss.png)
 ## Available Scripts
