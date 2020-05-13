@@ -37,9 +37,7 @@ export default class App extends Component {
     let { monsters } = this.state
     return (
       <div className="App">
-        <CardList>
-          {monsters.map((monster, idx) => <h1 key={idx}>{monster.name}</h1>)}
-        </CardList>
+        <CardList monsters = {monsters} />
       </div>
     )
   }

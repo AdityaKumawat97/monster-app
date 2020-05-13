@@ -1,10 +1,14 @@
 import React from 'react'
-import './card-list/card-list.styles.css'
-import './card-list.styles.css'
-export default function CardList(props) {
+import { Card } from '../card/Card.component'
+
+import './Card-list.styles.css'
+
+export function CardList(props) {
     return (
         <div className='card-list'>
-            {props.children}
+            {props.monsters.map((monster, idx) =>(
+            <Card key={idx} monster={monster} />
+            ))}
         </div>
     )
 }
